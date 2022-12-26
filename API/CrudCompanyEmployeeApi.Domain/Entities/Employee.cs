@@ -1,6 +1,6 @@
 ﻿
 
-using CrudCompanyEmployeeApi.Domain.Enum;
+using CrudCompanyEmployeeApi.Crosscuting.Enum;
 
 namespace CrudCompanyEmployeeApi.Domain.Entities
 {

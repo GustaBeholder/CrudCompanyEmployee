@@ -1,6 +1,6 @@
 ﻿
 
-namespace CrudCompanyEmployeeApi.Domain.Enum
+namespace CrudCompanyEmployeeApi.Crosscuting.Enum
 {
     public enum EmployeeRoles
     {

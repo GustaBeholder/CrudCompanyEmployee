@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CrudCompanyEmployeeApi.Crosscutting\CrudCompanyEmployeeApi.Crosscutting.csproj" />
+  </ItemGroup>
+
 </Project>
