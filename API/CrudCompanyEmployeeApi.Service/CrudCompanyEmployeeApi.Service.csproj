@@ -14,4 +14,8 @@
     <ProjectReference Include="..\CrudCompanyEmployeeApi.Domain\CrudCompanyEmployeeApi.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Modules\Base\" />
+  </ItemGroup>
+
 </Project>

@@ -16,17 +16,18 @@ namespace CrudCompanyEmployeeApi.Infrastructure.Repository
         #region Sync Methods
         public virtual IEnumerable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Set<TEntity>().ToList();
         }
 
         public virtual TEntity GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Set<TEntity>().Find(new object[] { id })!;
         }
 
         public virtual void Insert(TEntity entity)
         {
-            throw new NotImplementedException();
+            _context.Add(entity);
+            _context.SaveChanges();
         }
 
         public virtual void Delete(TEntity entity)
@@ -36,7 +37,8 @@ namespace CrudCompanyEmployeeApi.Infrastructure.Repository
 
         public virtual void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            _context.Update(entity);
+            _context.SaveChanges();
         }
         #endregion
 
