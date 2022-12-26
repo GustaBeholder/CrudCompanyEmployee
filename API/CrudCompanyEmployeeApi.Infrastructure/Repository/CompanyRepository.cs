@@ -27,11 +27,16 @@ namespace CrudCompanyEmployeeApi.Infrastructure.Repository
 
             return company;
         }
-
         public override void Insert(Company entity)
         {
             _context.Company.Add(entity);
             _context.SaveChanges(); 
+        }
+
+        public override void Update(Company entity)
+        {
+            _context.Company.Update(entity);
+            _context.SaveChanges();
         }
     }
 }

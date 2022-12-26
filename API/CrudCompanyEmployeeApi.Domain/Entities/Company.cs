@@ -6,7 +6,7 @@ namespace CrudCompanyEmployeeApi.Domain.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public IEnumerable<string> Phone { get; set; }
+        public string Phone { get; set; }
 
         //Entity Relations
         public int AddressId { get; set; }
