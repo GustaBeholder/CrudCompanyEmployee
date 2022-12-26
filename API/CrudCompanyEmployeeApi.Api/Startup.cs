@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.HttpOverrides;
+﻿using CrudCompanyEmployeeApi.Infrastructure.Data;
+using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text.Json.Serialization;
@@ -21,6 +23,10 @@ namespace CrudCompanyEmployeeApi.Api
             services.AddHttpClient();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHealthChecks();
+
+            string connection = Configuration["ConexaoSqlite:SqliteConnectionString"]!;
+
+            services.AddDbContext<ApplicationContext>(options => options.UseSqlite(connection));
 
             services.Configure<ForwardedHeadersOptions>(options =>
             {

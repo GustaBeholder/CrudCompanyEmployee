@@ -1,12 +1,14 @@
 ﻿
 
+using CrudCompanyEmployeeApi.Domain.Enum;
+
 namespace CrudCompanyEmployeeApi.Domain.Entities
 {
     public class Employee
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Role { get; set; }
+        public EmployeeRoles Role { get; set; }
         public double Salary { get; set; }
 
         //Entity Relations

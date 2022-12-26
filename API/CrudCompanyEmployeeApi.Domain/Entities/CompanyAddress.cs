@@ -11,6 +11,7 @@ namespace CrudCompanyEmployeeApi.Domain.Entities
         public string State { get; set; }
         public string ExtraInfo { get; set; }
         public string Cep { get; set; }
+        public Company Company { get; set; }
     }
 
 }
