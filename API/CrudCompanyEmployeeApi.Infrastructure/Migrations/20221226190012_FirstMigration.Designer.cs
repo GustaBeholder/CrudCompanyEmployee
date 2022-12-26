@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CrudCompanyEmployeeApi.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20221226184505_FirstMigration")]
+    [Migration("20221226190012_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />

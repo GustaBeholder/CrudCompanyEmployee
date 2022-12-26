@@ -24,7 +24,7 @@ namespace CrudCompanyEmployeeApi.Api
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHealthChecks();
 
-            string connection = Configuration["ConexaoSqlite:SqliteConnectionString"]!;
+            string connection = Configuration.GetConnectionString("DefaultConnection")!;
 
             services.AddDbContext<ApplicationContext>(options => options.UseSqlite(connection));
 
