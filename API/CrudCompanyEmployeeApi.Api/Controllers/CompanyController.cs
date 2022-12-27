@@ -90,5 +90,31 @@ namespace CrudCompanyEmployeeApi.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza uma Empresa
+        /// </summary>
+        /// <param></param>
+        /// <param></param>
+        /// <returns></returns>
+        [HttpPut]
+        [SwaggerResponse((int)HttpStatusCode.OK, "Atualizar dados Empresa.", typeof(int))]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Ocorreu um erro ao tentar Atualizar empresa, verifique a requisição", typeof(string))]
+        [SwaggerResponse((int)HttpStatusCode.InternalServerError, "Ocorreu um erro desconhecido ao tentar Atualizar uma  empresa, contate o administrador", typeof(string))]
+        public IActionResult Update([FromBody] CompanyUpdateDTO dto)
+        {
+            try
+            {
+                return Ok(_companyApplicationService.Update(dto));
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
     }
 }

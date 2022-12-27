@@ -7,6 +7,7 @@ namespace CrudCompanyEmployeeApi.Service.Modules.Module.Interface
         IEnumerable<CompanyGetDTO> GetAll();
         CompanyGetDTO GetById(int id);
         int Insert(CompanyInsertDTO company);  
-        void Update(CompanyUpdateDTO company); 
+        int Update(CompanyUpdateDTO company); 
+        int Delete(int id); 
     }
 }

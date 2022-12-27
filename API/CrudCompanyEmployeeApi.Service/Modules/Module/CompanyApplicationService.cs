@@ -15,6 +15,8 @@ namespace CrudCompanyEmployeeApi.Service.Modules.Module
         {
         }
 
+       
+
         public IEnumerable<CompanyGetDTO> GetAll()
         {
             var companies = _uow.CompanyRepository.GetAll();
@@ -69,7 +71,7 @@ namespace CrudCompanyEmployeeApi.Service.Modules.Module
 
         public int Insert(CompanyInsertDTO companyDto)
         {
-            Company company = new Company
+            Company company = new()
             {
                 Name = companyDto.Name,
                 Phone = companyDto.Phone,
@@ -87,9 +89,33 @@ namespace CrudCompanyEmployeeApi.Service.Modules.Module
             return _uow.CompanyRepository.Insert(company); ;
         }
 
-        public void Update(CompanyUpdateDTO company)
+        public int Update(CompanyUpdateDTO companyDto)
         {
-            throw new NotImplementedException();
+            Company company = new()
+            {
+                Id = companyDto.Id, 
+                Name = companyDto.Name,
+                Phone = companyDto.Phone,
+                Address = new CompanyAddress
+                {
+                    Id = companyDto.Id,
+                    Address = companyDto.Address.Address,
+                    Number = companyDto.Address.Number,
+                    Cep = companyDto.Address.Cep,
+                    ExtraInfo = companyDto.Address.ExtraInfo,
+                    Neighborhood = companyDto.Address.Neighborhood,
+                    State = companyDto.Address.State
+                }
+            };
+
+            _uow.CompanyRepository.Update(company);
+
+            return 1;
+        }
+
+        public int Delete(int id)
+        {
+            return _uow.CompanyRepository.Delete(id);
         }
     }
 }

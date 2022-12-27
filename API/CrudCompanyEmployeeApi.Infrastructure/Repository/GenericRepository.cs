@@ -31,11 +31,6 @@ namespace CrudCompanyEmployeeApi.Infrastructure.Repository
             
         }
 
-        public virtual void Delete(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
         public virtual void Update(TEntity entity)
         {
             _context.Update(entity);

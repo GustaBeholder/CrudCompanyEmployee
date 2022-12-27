@@ -9,7 +9,6 @@ namespace CrudCompanyEmployeeApi.Infrastructure.Repository.Interfaces
         IEnumerable<TEntity> GetAll();
         TEntity GetById(int id);
         void Insert(TEntity entity);
-        void Delete(TEntity entity);
         void Update(TEntity entity);
 
         #endregion
