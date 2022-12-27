@@ -27,6 +27,14 @@ namespace CrudCompanyEmployeeApi.Infrastructure.Repository
 
             return company;
         }
-      
+
+        public new int Insert(Company entity)
+        {
+            _context.Company.Add(entity);
+            _context.SaveChanges();
+
+            return entity.Id;
+        }
+
     }
 }

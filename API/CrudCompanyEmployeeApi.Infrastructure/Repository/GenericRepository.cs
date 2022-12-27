@@ -28,6 +28,7 @@ namespace CrudCompanyEmployeeApi.Infrastructure.Repository
         {
             _context.Add(entity);
             _context.SaveChanges();
+            
         }
 
         public virtual void Delete(TEntity entity)
