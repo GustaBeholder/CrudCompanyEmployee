@@ -15,10 +15,6 @@ namespace CrudCompanyEmployeeApi.Infrastructure.Configuration
             builder.Property(c => c.Name).HasColumnType("VARCHAR(200)").IsRequired();
             builder.Property(c => c.Phone).HasColumnType("VARCHAR(20)");
 
-            builder.HasOne<CompanyAddress>(c => c.Address)
-                 .WithOne(ad => ad.Company)
-                 .HasForeignKey<CompanyAddress>(ad => ad.Id);
-
             builder.HasMany<Employee>(c => c.Employees)
                 .WithOne(e => e.Company)
                 .HasForeignKey(e => e.CompanyId)

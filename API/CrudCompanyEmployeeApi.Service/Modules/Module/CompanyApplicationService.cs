@@ -15,7 +15,7 @@ namespace CrudCompanyEmployeeApi.Service.Modules.Module
         {
         }
 
-       
+
 
         public IEnumerable<CompanyGetDTO> GetAll()
         {
@@ -24,26 +24,24 @@ namespace CrudCompanyEmployeeApi.Service.Modules.Module
             var response = new List<CompanyGetDTO>();
 
             //Add Employees
-            foreach(var company in companies)
+            foreach (var company in companies)
             {
                 response.Add(new CompanyGetDTO
                 {
                     Id = company.Id,
                     Name = company.Name,
                     Phone = company.Phone,
-                    Adress = new CompanyAddressDTO
-                    {
-                        Address = company.Address.Address,
-                        Number = company.Address.Number,
-                        Cep = company.Address.Cep,
-                        ExtraInfo = company.Address.ExtraInfo,
-                        Neighborhood = company.Address.Neighborhood,
-                        State = company.Address.State
-                    }
+                    Address = company.Address,
+                    Number = company.Number,
+                    Cep = company.Cep,
+                    ExtraInfo = company.ExtraInfo,
+                    Neighborhood = company.Neighborhood,
+                    State = company.State
+
 
                 });
             }
-            return response;    
+            return response;
         }
 
         public CompanyGetDTO GetById(int id)
@@ -55,15 +53,14 @@ namespace CrudCompanyEmployeeApi.Service.Modules.Module
                 Id = company.Id,
                 Name = company.Name,
                 Phone = company.Phone,
-                Adress = new CompanyAddressDTO
-                {
-                    Address = company.Address.Address,
-                    Number = company.Address.Number,
-                    Cep = company.Address.Cep,
-                    ExtraInfo = company.Address.ExtraInfo,
-                    Neighborhood = company.Address.Neighborhood,
-                    State = company.Address.State
-                }
+
+                Address = company.Address,
+                Number = company.Number,
+                Cep = company.Cep,
+                ExtraInfo = company.ExtraInfo,
+                Neighborhood = company.Neighborhood,
+                State = company.State
+
             };
 
             return response;
@@ -75,15 +72,13 @@ namespace CrudCompanyEmployeeApi.Service.Modules.Module
             {
                 Name = companyDto.Name,
                 Phone = companyDto.Phone,
-                Address = new CompanyAddress
-                {
-                    Address = companyDto.AddressDTO.Address,
-                    Number = companyDto.AddressDTO.Number,
-                    Cep = companyDto.AddressDTO.Cep,
-                    ExtraInfo = companyDto.AddressDTO.ExtraInfo,
-                    Neighborhood = companyDto.AddressDTO.Neighborhood,
-                    State = companyDto.AddressDTO.State
-                }
+
+                Address = companyDto.Address,
+                Number = companyDto.Number,
+                Cep = companyDto.Cep,
+                ExtraInfo = companyDto.ExtraInfo,
+                Neighborhood = companyDto.Neighborhood,
+                State = companyDto.State
             };
 
             return _uow.CompanyRepository.Insert(company); ;
@@ -93,19 +88,16 @@ namespace CrudCompanyEmployeeApi.Service.Modules.Module
         {
             Company company = new()
             {
-                Id = companyDto.Id, 
+                Id = companyDto.Id,
                 Name = companyDto.Name,
                 Phone = companyDto.Phone,
-                Address = new CompanyAddress
-                {
-                    Id = companyDto.Id,
-                    Address = companyDto.Address.Address,
-                    Number = companyDto.Address.Number,
-                    Cep = companyDto.Address.Cep,
-                    ExtraInfo = companyDto.Address.ExtraInfo,
-                    Neighborhood = companyDto.Address.Neighborhood,
-                    State = companyDto.Address.State
-                }
+                Address = companyDto.Address,
+                Number = companyDto.Number,
+                Cep = companyDto.Cep,
+                ExtraInfo = companyDto.ExtraInfo,
+                Neighborhood = companyDto.Neighborhood,
+                State = companyDto.State
+
             };
 
             _uow.CompanyRepository.Update(company);

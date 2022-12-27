@@ -10,7 +10,6 @@ namespace CrudCompanyEmployeeApi.Infrastructure.Data
 
         public DbSet<Company> Company { get; set; }
         public DbSet<Employee> Employee { get; set; }
-        public DbSet<CompanyAddress> CompanyAddress { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

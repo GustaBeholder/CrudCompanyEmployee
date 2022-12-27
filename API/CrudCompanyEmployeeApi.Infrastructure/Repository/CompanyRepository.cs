@@ -23,7 +23,6 @@ namespace CrudCompanyEmployeeApi.Infrastructure.Repository
         public override IEnumerable<Company> GetAll()
         {
             List<Company> companies = _context.Company
-                .Include(c => c.Address)
                 .Include(c => c.Employees).ToList();
 
             return companies;
@@ -32,7 +31,6 @@ namespace CrudCompanyEmployeeApi.Infrastructure.Repository
         public override Company GetById(int id)
         {
             Company company = _context.Company
-                .Include(c => c.Address)
                 .Include(c => c.Employees).FirstOrDefault(c => c.Id == id)!;
 
             return company;
