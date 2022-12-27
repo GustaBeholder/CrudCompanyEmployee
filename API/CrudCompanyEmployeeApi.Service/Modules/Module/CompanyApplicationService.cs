@@ -84,9 +84,7 @@ namespace CrudCompanyEmployeeApi.Service.Modules.Module
                 }
             };
 
-            _uow.CompanyRepository.Insert(company);
-
-            return 1;
+            return _uow.CompanyRepository.Insert(company); ;
         }
 
         public void Update(CompanyUpdateDTO company)
