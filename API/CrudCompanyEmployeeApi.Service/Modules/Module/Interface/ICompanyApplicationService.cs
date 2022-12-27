@@ -2,7 +2,7 @@
 
 namespace CrudCompanyEmployeeApi.Service.Modules.Module.Interface
 {
-    public interface ICompanyApplicationService
+    public interface ICompanyApplicationService 
     {
         IEnumerable<CompanyGetDTO> GetAll();
         CompanyGetDTO GetById(int id);

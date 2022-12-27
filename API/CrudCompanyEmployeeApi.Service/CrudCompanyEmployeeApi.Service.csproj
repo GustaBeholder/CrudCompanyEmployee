@@ -12,10 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CrudCompanyEmployeeApi.Domain\CrudCompanyEmployeeApi.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Modules\Base\" />
+    <ProjectReference Include="..\CrudCompanyEmployeeApi.Infrastructure\CrudCompanyEmployeeApi.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,9 @@
 ﻿using CrudCompanyEmployeeApi.Infrastructure.Data;
+using CrudCompanyEmployeeApi.Service.DependencyInjection;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using System.Reflection;
+
 using System.Text.Json.Serialization;
 
 namespace CrudCompanyEmployeeApi.Api
@@ -27,6 +28,8 @@ namespace CrudCompanyEmployeeApi.Api
             string connection = Configuration.GetConnectionString("DefaultConnection")!;
 
             services.AddDbContext<ApplicationContext>(options => options.UseSqlite(connection));
+
+            ConfigureBindingsDependencyInjection.RegisterBindings(services);
 
             services.Configure<ForwardedHeadersOptions>(options =>
             {

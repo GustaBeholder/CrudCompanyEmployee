@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CrudCompanyEmployeeApi.Infrastructure\CrudCompanyEmployeeApi.Infrastructure.csproj" />
+    <ProjectReference Include="..\CrudCompanyEmployeeApi.Service\CrudCompanyEmployeeApi.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>
