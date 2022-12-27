@@ -1,7 +1,5 @@
-﻿using CrudCompanyEmployeeApi.Infrastructure.Data;
-using CrudCompanyEmployeeApi.Service.DependencyInjection;
+﻿using CrudCompanyEmployeeApi.Service.DependencyInjection;
 using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 using System.Text.Json.Serialization;

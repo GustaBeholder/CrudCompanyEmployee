@@ -31,7 +31,7 @@ namespace CrudCompanyEmployeeApi.Infrastructure.UnitOfWork
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _session.Dispose();
         }
     }
 }

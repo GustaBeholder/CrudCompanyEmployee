@@ -39,7 +39,7 @@ namespace CrudCompanyEmployeeApi.Service.DependencyInjection
             #endregion
 
             #region Database
-            ConfigureBindingsDatabaseInjection.RegisterBindings(services, configuration)
+            ConfigureBindingsDatabaseInjection.RegisterBindings(services, configuration);
             #endregion
         }
     }
