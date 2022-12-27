@@ -25,11 +25,7 @@ namespace CrudCompanyEmployeeApi.Api
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHealthChecks();
 
-            string connection = Configuration.GetConnectionString("DefaultConnection")!;
-
-            services.AddDbContext<ApplicationContext>(options => options.UseSqlite(connection));
-
-            ConfigureBindingsDependencyInjection.RegisterBindings(services);
+            ConfigureBindingsDependencyInjection.RegisterBindings(services, Configuration);
 
             services.Configure<ForwardedHeadersOptions>(options =>
             {

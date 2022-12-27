@@ -1,20 +1,18 @@
 ﻿using CrudCompanyEmployeeApi.Service.DependencyInjection.ApplicationServiceInjection;
+using CrudCompanyEmployeeApi.Service.DependencyInjection.DatabaseInjection;
 using CrudCompanyEmployeeApi.Service.DependencyInjection.RepositoryInjection;
 using CrudCompanyEmployeeApi.Service.DependencyInjection.UnitOfWork;
 using CrudCompanyEmployeeApi.Service.DependencyInjection.ValidatorInjection;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CrudCompanyEmployeeApi.Service.DependencyInjection
 {
     public static class ConfigureBindingsDependencyInjection
     {
         
-        public static void RegisterBindings(IServiceCollection services)
+        public static void RegisterBindings(IServiceCollection services, IConfiguration configuration)
         {
             #region Application Service
 
@@ -38,6 +36,10 @@ namespace CrudCompanyEmployeeApi.Service.DependencyInjection
 
             ConfigureBindingsCommonValidations.RegisterBindings(services);
 
+            #endregion
+
+            #region Database
+            ConfigureBindingsDatabaseInjection.RegisterBindings(services, configuration)
             #endregion
         }
     }
