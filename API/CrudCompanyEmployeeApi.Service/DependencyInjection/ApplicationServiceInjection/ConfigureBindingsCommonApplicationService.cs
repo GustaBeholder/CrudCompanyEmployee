@@ -9,7 +9,7 @@ namespace CrudCompanyEmployeeApi.Service.DependencyInjection.ApplicationServiceI
         public static void RegisterBindings(IServiceCollection services)
         {
             services.AddScoped<ICompanyApplicationService, CompanyApplicationService>();
-            //services.AddScoped<IEmployeeApplicationService, EmployeeApplicationService>();
+            services.AddScoped<IEmployeeApplicationService, EmployeeApplicationService>();
             
         }
     }

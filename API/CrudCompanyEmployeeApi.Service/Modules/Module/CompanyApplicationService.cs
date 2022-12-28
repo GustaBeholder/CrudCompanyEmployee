@@ -1,6 +1,5 @@
-﻿
-
-using CrudCompanyEmployeeApi.Crosscutting.DTO;
+﻿using CrudCompanyEmployeeApi.Crosscutting.DTO.Comany;
+using CrudCompanyEmployeeApi.Crosscutting.DTO.Employee;
 using CrudCompanyEmployeeApi.Domain.Entities;
 using CrudCompanyEmployeeApi.Infrastructure.Repository.Interfaces;
 using CrudCompanyEmployeeApi.Infrastructure.UnitOfWork.Interface;
@@ -14,8 +13,6 @@ namespace CrudCompanyEmployeeApi.Service.Modules.Module
         public CompanyApplicationService(ICompanyUnitOfWork uow) : base(uow)
         {
         }
-
-
 
         public IEnumerable<CompanyGetDTO> GetAll()
         {
@@ -36,9 +33,8 @@ namespace CrudCompanyEmployeeApi.Service.Modules.Module
                     Cep = company.Cep,
                     ExtraInfo = company.ExtraInfo,
                     Neighborhood = company.Neighborhood,
-                    State = company.State
-
-
+                    State = company.State,
+                    Employees = MapEmployee(company.Employees)
                 });
             }
             return response;
@@ -59,7 +55,8 @@ namespace CrudCompanyEmployeeApi.Service.Modules.Module
                 Cep = company.Cep,
                 ExtraInfo = company.ExtraInfo,
                 Neighborhood = company.Neighborhood,
-                State = company.State
+                State = company.State,
+                Employees = MapEmployee(company.Employees)
 
             };
 
@@ -78,7 +75,8 @@ namespace CrudCompanyEmployeeApi.Service.Modules.Module
                 Cep = companyDto.Cep,
                 ExtraInfo = companyDto.ExtraInfo,
                 Neighborhood = companyDto.Neighborhood,
-                State = companyDto.State
+                State = companyDto.State,
+
             };
 
             return _uow.CompanyRepository.Insert(company); ;
@@ -108,6 +106,24 @@ namespace CrudCompanyEmployeeApi.Service.Modules.Module
         public int Delete(int id)
         {
             return _uow.CompanyRepository.Delete(id);
+        }
+
+        private static IEnumerable<EmployeeGetDTO> MapEmployee(IEnumerable<Employee> employees)
+        {
+            List<EmployeeGetDTO> response = new();
+
+            foreach(var employee in employees)
+            {
+                response.Add(new EmployeeGetDTO
+                {
+                    Id = employee.Id,
+                    Name = employee.Name,
+                    Role = employee.Role,
+                    Salary = employee.Salary
+                });
+            }
+
+            return response;
         }
     }
 }

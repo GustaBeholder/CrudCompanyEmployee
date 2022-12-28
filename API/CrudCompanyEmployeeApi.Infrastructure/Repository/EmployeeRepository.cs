@@ -19,5 +19,39 @@ namespace CrudCompanyEmployeeApi.Infrastructure.Repository
 
             return employee;
         }
+
+        public override IEnumerable<Employee> GetAll()
+        {
+            var employees = _context.Employee
+                    .Include(e => e.Company).ToList();
+
+            return employees;
+        }
+
+        public new int Insert(Employee entity)
+        {
+            _context.Employee.Add(entity);
+            _context.SaveChanges();
+
+            return entity.Id;
+        }
+
+        public override void Update(Employee entity)
+        {
+            _context.Employee.Add(entity);
+            _context.Entry(entity).State = EntityState.Modified;
+
+            _context.SaveChanges();
+        }
+
+        public int Delete(int id)
+        {
+            var company = new Employee() { Id = id };
+            _context.Employee.Attach(company);
+            _context.Employee.Remove(company);
+            _context.SaveChanges();
+
+            return id;
+        }
     }
 }

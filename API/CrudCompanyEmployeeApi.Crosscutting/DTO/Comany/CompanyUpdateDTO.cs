@@ -1,7 +1,12 @@
-﻿
-namespace CrudCompanyEmployeeApi.Crosscutting.DTO
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CrudCompanyEmployeeApi.Crosscutting.DTO.Comany
 {
-    public class CompanyGetDTO
+    public class CompanyUpdateDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }

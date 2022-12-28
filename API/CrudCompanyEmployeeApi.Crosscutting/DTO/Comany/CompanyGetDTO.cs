@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CrudCompanyEmployeeApi.Crosscutting.DTO.Employee;
 
-namespace CrudCompanyEmployeeApi.Crosscutting.DTO
+namespace CrudCompanyEmployeeApi.Crosscutting.DTO.Comany
 {
-    public class CompanyUpdateDTO
+    public class CompanyGetDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -17,5 +13,7 @@ namespace CrudCompanyEmployeeApi.Crosscutting.DTO
         public string State { get; set; }
         public string ExtraInfo { get; set; }
         public string Cep { get; set; }
+
+        public IEnumerable<EmployeeGetDTO> Employees { get; set; }
     }
 }

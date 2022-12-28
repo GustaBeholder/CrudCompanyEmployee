@@ -1,5 +1,4 @@
-﻿
-namespace CrudCompanyEmployeeApi.Crosscutting.DTO
+﻿namespace CrudCompanyEmployeeApi.Crosscutting.DTO.Comany
 {
     public class CompanyInsertDTO
     {

@@ -1,4 +1,4 @@
-﻿using CrudCompanyEmployeeApi.Crosscutting.DTO;
+﻿using CrudCompanyEmployeeApi.Crosscutting.DTO.Comany;
 
 namespace CrudCompanyEmployeeApi.Service.Modules.Module.Interface
 {
