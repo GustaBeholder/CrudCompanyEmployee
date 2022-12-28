@@ -11,7 +11,7 @@ namespace CrudCompanyEmployeeApi.Service.Modules.Module
 {
     public class EmployeeApplicationService : BaseApplicationService<IEmployeeUnitOfWork, IEmployeeRepository, Employee>, IEmployeeApplicationService
     {
-        protected EmployeeApplicationService(IEmployeeUnitOfWork uow) : base(uow)
+        public EmployeeApplicationService(IEmployeeUnitOfWork uow) : base(uow)
         {
         }
 
