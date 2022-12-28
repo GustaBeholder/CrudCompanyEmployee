@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CrudCompanyEmployeeWeb.App.Models.ViewModels.CompanyViewModel>
+@{
+    ViewData["Title"] = "Empresas";
+}
+
+<h3>Empresas</h3>
+
+<p><a href="@Url.Action("Create", "Company")">Nova</a></p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Detalhes</th>
+            <th scope="col">Editar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model is not null)
+        {
+            @foreach (var company in Model)
+            {
+                <tr>
+                    <th scope="row">@company.Id</th>
+                    <td>@company.Name</td>
+                    <td>@company.Phone</td>
+                    <td>@company.State</td>
+                    <td><a href="@Url.Action("Details", "Company")">Detalhes</a></td>
+                    <td><a href="@Url.Action("Edit", "Company")">Detalhes</a></td>
+                </tr>
+
+            }
+        }
+        else
+        {
+            <p class="text-muted">Nenhuma empresa encontrada :c</p>
+        }
+
+
+    </tbody>
+</table>
+
+

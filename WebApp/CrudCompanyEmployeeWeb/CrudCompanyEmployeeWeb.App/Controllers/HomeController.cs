@@ -1,4 +1,4 @@
-﻿using CrudCompanyEmployeeWeb.App.Models;
+﻿using CrudCompanyEmployeeWeb.App.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

@@ -1,7 +1,12 @@
+using CrudCompanyEmployeeWeb.App.Services;
+using CrudCompanyEmployeeWeb.App.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddHttpClient<ICompanyService, CompanyService>();
 
 var app = builder.Build();
 
